@@ -29,8 +29,7 @@ public class TileManager {
         @Override
         public void handle(long currentNanoTime) {
 
-            if (frameCount % 50 == 0) {
-                // 30 fps ?
+            if (frameCount % 2 == 0) {
                 nextCycle();
                 System.out.println("running");
             }
@@ -39,7 +38,7 @@ public class TileManager {
     };
 
 
-    private boolean[][] getCurrentWorldState(){
+    private boolean[][] getCurrentWorldState() {
         boolean[][] state = new boolean[tileCountX][tileCountY];
         for (int y = 0; y < tileCountY; y++) {
             for (int x = 0; x < tileCountX; x++) {
@@ -53,22 +52,22 @@ public class TileManager {
         boolean[][] state = getCurrentWorldState();
         for (int y = 0; y < tileCountY; y++) {
             for (int x = 0; x < tileCountX; x++) {
-                int cellsAliveAround = checkHowManyCellsAreAliveAround(x,y);
+                int cellsAliveAround = checkHowManyCellsAreAliveAround(x, y, state);
                 Tile cell = cells[x][y];
-                if (state[x][y] && !(cellsAliveAround==2 || cellsAliveAround==3)){
+                if (state[x][y] && !(cellsAliveAround == 2 || cellsAliveAround == 3)) {
                     cell.killCell();
                 }
-                if(state[x][y] && cellsAliveAround==3){
+                if (!state[x][y] && cellsAliveAround == 3) {
                     cell.resurrectCell();
                 }
             }
         }
     }
 
-    private int checkHowManyCellsAreAliveAround(int x, int y) {
+    private int checkHowManyCellsAreAliveAround(int x, int y, boolean[][] state) {
         int numberOfAliveCells = 0;
         for (int i = 0; i < checkingPositions.length; i++) {
-            if (cells[wrapX(x + checkingPositions[i])][wrapY(y + checkingPositions[++i])].isAlive()) {
+            if (state[wrapX(x + checkingPositions[i])][wrapY(y + checkingPositions[++i])]) {
                 numberOfAliveCells++;
             }
         }
@@ -105,7 +104,7 @@ public class TileManager {
         return timerRunning;
     }
 
-    public void killAllCells(){
+    public void killAllCells() {
         for (int y = 0; y < tileCountY; y++) {
             for (int x = 0; x < tileCountX; x++) {
                 cells[x][y].killCell();

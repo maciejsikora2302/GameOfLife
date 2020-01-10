@@ -42,8 +42,10 @@ public class ContentCreator {
             if(key.getCode() == KeyCode.SPACE){
                 if(tileManager.isTimerRunning()){
                     tileManager.stopTimer();
+                    System.out.println("stopped timer");
                 }else{
                     tileManager.startTimer();
+                    System.out.println("started timer");
                 }
             }
             if(key.getCode() == KeyCode.R){
