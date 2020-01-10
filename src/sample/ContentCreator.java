@@ -1,15 +1,8 @@
 package sample;
 
-import javafx.event.EventHandler;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.*;
-import javafx.scene.text.Text;
-
-import java.awt.*;
-import java.util.ArrayList;
 
 public class ContentCreator {
     private int gameWidth;
@@ -22,7 +15,7 @@ public class ContentCreator {
     private int tileCountX;
     private int tileCountY;
 
-    private TileManager tileManager = new TileManager();
+    private TileManager tileManager;
 
     public ContentCreator(int gameWidth, int gameHeight, int tileSize, int menuWidth) {
         Tile.tileSize = tileSize;
@@ -32,6 +25,7 @@ public class ContentCreator {
         this.menuWidth = menuWidth;
         this.tileCountX = gameWidth / tileSize;
         this.tileCountY = gameHeight / tileSize;
+        tileManager = new TileManager(tileCountX, tileCountY);
     }
 
     //stage <- scene <- rootPane <- gamePane + menuPane
@@ -45,11 +39,17 @@ public class ContentCreator {
         Scene root = new Scene(createGamePane());
 
         root.setOnKeyPressed(key ->{
-            if(tileManager.isTimerRunning()){
-                tileManager.stopTimer();
-            }else{
-                tileManager.startTimer();
+            if(key.getCode() == KeyCode.SPACE){
+                if(tileManager.isTimerRunning()){
+                    tileManager.stopTimer();
+                }else{
+                    tileManager.startTimer();
+                }
             }
+            if(key.getCode() == KeyCode.R){
+                tileManager.killAllCells();
+            }
+
         });
 
         return root;
@@ -59,17 +59,17 @@ public class ContentCreator {
         Pane gamePane = new Pane();
         System.out.println(gameWidth + " " +  gameHeight);
         gamePane.setPrefSize(gameWidth, gameHeight);
-        Tile[][] tiles = new Tile[tileCountX][tileCountY];
+        Tile[][] cells = new Tile[tileCountX][tileCountY];
         System.out.println(tileCountX + " " +  tileCountY);
         System.out.println(tileSize);
         for(int y=0; y<tileCountY;y++){
             for(int x=0;x<tileCountX;x++){
                 Tile tile = new Tile(x,y);
-                tiles[x][y] = tile;
+                cells[x][y] = tile;
                 gamePane.getChildren().add(tile);
             }
         }
-        tileManager.setTiles(tiles);
+        tileManager.setCells(cells);
 
         return gamePane;
     }

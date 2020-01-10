@@ -30,12 +30,39 @@ public class Tile extends StackPane {
     }
 
     public void manageLifeStateOfCell(){
-        if(!alive){
-            border.setFill(Color.BLUE);
-            alive = true;
+        if(isAlive()){
+            killCell();
         }else{
-            border.setFill(Color.BLACK);
-            alive = false;
+            resurrectCell();
         }
+    }
+
+    public void killCell(){
+        border.setFill(Color.BLACK);
+        alive = false;
+    }
+
+    public void resurrectCell(){
+        border.setFill(Color.GREEN);
+        alive = true;
+    }
+
+    public boolean isAlive() {
+        return alive;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    @Override
+    public String toString() {
+        return "Tile{" +
+                "alive=" + alive +
+                '}';
     }
 }

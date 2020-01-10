@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class Main extends Application {
 
     private ContentCreator contentCreator = new ContentCreator(800,800,40, 150);
-
+    private TileManager tileManager = contentCreator.getTileManager();
 
     @Override
     public void start(Stage primaryStage) throws Exception{
