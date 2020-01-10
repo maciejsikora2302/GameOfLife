@@ -42,10 +42,8 @@ public class ContentCreator {
             if(key.getCode() == KeyCode.SPACE){
                 if(tileManager.isTimerRunning()){
                     tileManager.stopTimer();
-                    System.out.println("stopped timer");
                 }else{
                     tileManager.startTimer();
-                    System.out.println("started timer");
                 }
             }
             if(key.getCode() == KeyCode.R){
@@ -59,11 +57,8 @@ public class ContentCreator {
 
     public Pane createGamePane() {
         Pane gamePane = new Pane();
-        System.out.println(gameWidth + " " +  gameHeight);
         gamePane.setPrefSize(gameWidth, gameHeight);
         Tile[][] cells = new Tile[tileCountX][tileCountY];
-        System.out.println(tileCountX + " " +  tileCountY);
-        System.out.println(tileSize);
         for(int y=0; y<tileCountY;y++){
             for(int x=0;x<tileCountX;x++){
                 Tile tile = new Tile(x,y);

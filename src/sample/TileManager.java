@@ -31,7 +31,6 @@ public class TileManager {
 
             if (frameCount % 2 == 0) {
                 nextCycle();
-                System.out.println("running");
             }
             frameCount++;
         }
