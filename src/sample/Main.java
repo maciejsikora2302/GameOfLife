@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class Main extends Application {
 
-    private ContentCreator contentCreator = new ContentCreator(800,800,40, 150);
+    private ContentCreator contentCreator = new ContentCreator(800,800,40, 370);
     private TileManager tileManager = contentCreator.getTileManager();
 
     @Override

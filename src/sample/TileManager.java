@@ -18,24 +18,38 @@ public class TileManager {
             1, 1
     };
 
-    public TileManager(int tileCountX, int tileCountY) {
-        this.tileCountX = tileCountX;
-        this.tileCountY = tileCountY;
-    }
+    private int speed = 2;
 
+    public StatisticsManager statisticsManager;
     AnimationTimer timer = new AnimationTimer() {
         int frameCount = 0;
 
         @Override
         public void handle(long currentNanoTime) {
 
-            if (frameCount % 2 == 0) {
+            if (frameCount % speed == 0) {
                 nextCycle();
+                statisticsManager.updateStatistics();
             }
             frameCount++;
         }
     };
 
+    public TileManager(int tileCountX, int tileCountY) {
+        this.tileCountX = tileCountX;
+        this.tileCountY = tileCountY;
+        statisticsManager= new StatisticsManager(this);
+    }
+
+    public int getNumberOfCellsAlive(){
+        int alive = 0;
+        for(int x =0;x<tileCountX;x++){
+            for(int y =0;y<tileCountY;y++){
+                if(cells[x][y].isAlive()) alive++;
+            }
+        }
+        return alive;
+    }
 
     private boolean[][] getCurrentWorldState() {
         boolean[][] state = new boolean[tileCountX][tileCountY];
@@ -109,6 +123,10 @@ public class TileManager {
                 cells[x][y].killCell();
             }
         }
+    }
+
+    public void setSpeed(int speed) {
+        this.speed = speed;
     }
 
 }
