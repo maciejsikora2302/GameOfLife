@@ -51,10 +51,20 @@
   <component name="FavoritesManager">
     <favorites_list name="JavaFxApplication" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="FindManager">
     <FindUsagesManager>
       <setting name="OPEN_NEW_TAB" value="false" />
     </FindUsagesManager>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectId" id="1WDX94fo88CqXIeSNd1zxgLhk6d" />
@@ -79,6 +89,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dynamic.classpath" value="false" />
     <property name="recentsLimit" value="5" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="Applet" factoryName="Applet">
@@ -108,7 +119,7 @@
     </configuration>
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="sample.Main" />
-      <module name="JavaFxApplication" />
+      <module name="GameOfLife" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
         <pattern>
@@ -183,16 +194,60 @@
       <option name="presentableId" value="Default" />
       <updated>1359379246138</updated>
       <workItem from="1359379250712" duration="1302000" />
-      <workItem from="1578685019025" duration="2000" />
+      <workItem from="1578685019025" duration="5656000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/GameOfLife" />
+    </ignored-roots>
   </component>
-  <component name="antWorkspaceConfiguration">
-    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
-    <option name="FILTER_TARGETS" value="false" />
+  <component name="WindowStateProjectService">
+    <state x="765" y="317" key="#com.intellij.ide.util.MemberChooser" timestamp="1578690324488">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state x="765" y="317" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1200@0.0.1920.1200" timestamp="1578690324488" />
+    <state x="697" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1578686328204">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state x="697" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1200@0.0.1920.1200" timestamp="1578686328204" />
+    <state width="1877" height="334" key="GridCell.Tab.0.bottom" timestamp="1578690681764">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state width="1877" height="334" key="GridCell.Tab.0.bottom/0.0.1920.1200@0.0.1920.1200" timestamp="1578690681764" />
+    <state width="1877" height="334" key="GridCell.Tab.0.center" timestamp="1578690681764">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state width="1877" height="334" key="GridCell.Tab.0.center/0.0.1920.1200@0.0.1920.1200" timestamp="1578690681764" />
+    <state width="1877" height="334" key="GridCell.Tab.0.left" timestamp="1578690681764">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state width="1877" height="334" key="GridCell.Tab.0.left/0.0.1920.1200@0.0.1920.1200" timestamp="1578690681764" />
+    <state width="1877" height="334" key="GridCell.Tab.0.right" timestamp="1578690681764">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state width="1877" height="334" key="GridCell.Tab.0.right/0.0.1920.1200@0.0.1920.1200" timestamp="1578690681764" />
+    <state x="461" y="243" key="SettingsEditor" timestamp="1578685199153">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state x="461" y="243" key="SettingsEditor/0.0.1920.1200@0.0.1920.1200" timestamp="1578685199153" />
+    <state x="661" y="425" key="com.intellij.ide.util.TipDialog" timestamp="1578685105918">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state x="661" y="425" key="com.intellij.ide.util.TipDialog/0.0.1920.1200@0.0.1920.1200" timestamp="1578685105918" />
+    <state x="616" y="280" key="run.anything.popup" timestamp="1578688699322">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state x="616" y="280" key="run.anything.popup/0.0.1920.1200@0.0.1920.1200" timestamp="1578688699322" />
+    <state x="623" y="265" width="672" height="678" key="search.everywhere.popup" timestamp="1578685508892">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state x="623" y="265" width="672" height="678" key="search.everywhere.popup/0.0.1920.1200@0.0.1920.1200" timestamp="1578685508892" />
   </component>
 </project>
