@@ -9,6 +9,9 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class ContentCreator {
     private int gameWidth;
     private int gameHeight;
@@ -44,10 +47,15 @@ public class ContentCreator {
         HBox panesBox = new HBox(createGamePane(), createMenuPane());
         Scene root = new Scene(panesBox);
 
+        root.setOnMouseClicked(mouseEvent -> {
+            panesBox.requestFocus();
+        });
+
         root.setOnKeyPressed(key -> {
             if (key.getCode() == KeyCode.SPACE) {
                 if (tileManager.isTimerRunning()) {
                     tileManager.stopTimer();
+                    tileManager.statisticsManager.updateStatistics();
                 } else {
                     tileManager.startTimer();
                 }
@@ -90,7 +98,7 @@ public class ContentCreator {
         Text animationRunning = new Text("Animation running: " + tileManager.isTimerRunning());
         tileManager.statisticsManager.setRunningToUpdate(animationRunning);
 
-        TextField speedTF = new TextField("Set initial speed");
+        TextField speedTF = new TextField("Input speed here");
         Button modifySpeed = new Button("Modify speed");
         modifySpeed.setOnAction(pressed -> {
             int speed = 1;
@@ -107,20 +115,40 @@ public class ContentCreator {
             menuPane.requestFocus();
             tileManager.setSpeed(speed);
         });
-
-
         HBox speedBox = new HBox(10);
         speedBox.getChildren().addAll(speedTF, modifySpeed);
-
-        Text speedDescription = new Text("1 is the fastes, around 50/60 is pretty slow");
-        Text usageDescription = new Text("After input of initial speed press space to start and stop simulation");
+        Text speedDescription = new Text("1 is the fastest, around 50/60 is pretty slow");
 
 
-        menuBox.getChildren().addAll(menuTitle, aliveOnMapText, animationRunning, speedBox, speedDescription, usageDescription);
+        TextField rulesInput = new TextField("Input custom rules");
+        Button getRulesButton = new Button("Get new rules");
+        getRulesButton.setOnAction(pressed ->{
+            String[] outcome = rulesInput.getText().split("/");
+            System.out.println(outcome[0] + " " + outcome[1]);
+            Set<Integer> left = new HashSet<>();
+            for(int i=0;i<outcome[0].length();i++){
+                left.add((int) outcome[0].charAt(i) - 48);
+            }
+            tileManager.setStillAliveWhen(left);
+
+            Set<Integer> right = new HashSet<>();
+            for(int i=0;i<outcome[1].length();i++){
+                right.add((int) outcome[1].charAt(i) - 48);
+            }
+            tileManager.setResurrectWhen(right);
+            menuPane.requestFocus();
+        });
+        HBox rulesBox = new HBox( 10 );
+        rulesBox.getChildren().addAll(rulesInput,getRulesButton);
+        Text usageDescription = new Text("Press space to start and stop simulation\nPress \"R\" to kill all cells");
+
+
+        menuBox.getChildren().addAll(menuTitle, aliveOnMapText, animationRunning, speedBox, speedDescription, rulesBox, usageDescription);
 
         menuBox.setAlignment(Pos.CENTER);
         menuBox.setTranslateY(menuHeight / 2.0);
         menuPane.getChildren().addAll(menuBox);
+
 
         return menuPane;
     }
