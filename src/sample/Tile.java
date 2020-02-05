@@ -27,6 +27,9 @@ public class Tile extends StackPane {
         setOnMouseClicked(event ->{
             this.manageLifeStateOfCell();
         });
+        setOnMouseDragOver(event ->{
+            this.manageLifeStateOfCell();
+        });
     }
 
     public void manageLifeStateOfCell(){

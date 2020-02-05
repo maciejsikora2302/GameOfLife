@@ -19,7 +19,6 @@ public class ContentCreator {
     private int menuWidth;
     private int menuHeight = gameHeight;
 
-    private int tileSize = 1;
     private int tileCountX;
     private int tileCountY;
 
@@ -29,7 +28,6 @@ public class ContentCreator {
         Tile.tileSize = tileSize;
         this.gameWidth = gameWidth;
         this.gameHeight = gameHeight;
-        this.tileSize = tileSize;
         this.menuWidth = menuWidth;
         this.tileCountX = gameWidth / tileSize;
         this.tileCountY = gameHeight / tileSize;
@@ -63,7 +61,6 @@ public class ContentCreator {
             if (key.getCode() == KeyCode.R) {
                 tileManager.killAllCells();
             }
-
         });
 
         return root;
