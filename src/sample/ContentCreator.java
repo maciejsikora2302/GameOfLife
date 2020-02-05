@@ -105,6 +105,7 @@ public class ContentCreator {
             try {
                 speed = Integer.parseInt(speedTF.getText());
                 if (speed < 0) throw new NumberFormatException("Negative number");
+                if (speed > 60) speed = 60;
             } catch (NumberFormatException ex) {
                 Alert errorAlert = new Alert(Alert.AlertType.ERROR);
                 errorAlert.setTitle("Input not valid");
